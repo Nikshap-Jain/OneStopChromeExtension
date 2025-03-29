@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const ProjectSchema = require("../Models/project");
+const Project = require("../Models/project");
 
 //Create a project
 router.post("/", async (req, res) => {
   try {
-    const newProject = await ProjectSchema.create(req.body);
+    const newProject = await Project.create(req.body); //its a shortcut which create and automatically saves.
     res.json(newProject);
   } catch (e) {
     res.status(500).json(e);
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 //Get All projects
 router.get("/", async (req, res) => {
   try {
-    const projects = await ProjectSchema.find().sort({ createdAt: -1 });
+    const projects = await Project.find().sort({ createdAt: -1 });
     res.json(projects);
   } catch (err) {
     res.status(500).json(err);
