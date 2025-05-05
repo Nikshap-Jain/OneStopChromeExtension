@@ -1,4 +1,4 @@
-# OneStop Chrome Extension
+# OmniFlow
 
 ## Description
 
